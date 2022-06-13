@@ -6,8 +6,6 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 const config = require('./config.json');
 const welcome = require('./welcome');
 const commandBase = require('./commands/command-base');
-const server = require('./server');
-const keepAlive = require('./server');
 
 const activities = [
   'Flash',
@@ -62,5 +60,4 @@ client.on('ready', async () => {
   welcome(client)
 })
 
-keepAlive()
 client.login(config.token)
