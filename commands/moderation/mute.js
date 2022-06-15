@@ -4,13 +4,6 @@ module.exports = {
     expectedArgs: "<Target user's @> <The reason>",
     requiredRoles: ['Admins'],
     callback: (args,message,client,guild) =>{
-        /*const targetUser = message.mentions.users.first()
-        if (!targetUser) {
-            message.reply('Please specify someone to mute.')
-            return
-          
-        }*/
-      // const { guild } = message
       
         let role = message.guild.roles.cache.find(role => role.name === 'muted')
         let reason = message.content.split(" ").slice(2).join(" ")
