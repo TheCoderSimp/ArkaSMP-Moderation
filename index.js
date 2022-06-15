@@ -6,38 +6,48 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 const config = require('./config.json');
 const welcome = require('./welcome');
 const commandBase = require('./commands/command-base');
+const keepAlive = require('./server')
 
+// const state = 0
 const activities = [
-  'Flash',
-  'Steins Gate',
-  'Infi go on about anime',
-  'Arka sell hitmen',
-  'Ish singing Joe Ke Bolo',
-  'People not having a life',
-  'Aadi being dumb',
-  'JJ apologising for deleting general',
-  'Peaky Blinders',
-  'The Office',
-  'JJ begging Arka and Infi to watch flash',
-  'Abhiggyan begging for admin',
-  'Community',
-  'Reverse Flash being so cool',
-  'People cry for help',
-  'Tommy Shelby being a sigma',
-  'Anime',
-  'YLIA and crying D:',
-  'Anime',
-  'Naruto spam shadow clone jutsu',
-  'Infi getting strelizia ready'
+   'Flash',
+   'Steins Gate',
+   'Infi go on about anime',
+   'Arka sell hitmen',
+   'Singing Joe Ke Bolo',
+   'People not having a life',
+   'Aadi being dumb',
+   'JJ apologising for deleting general',
+   'Peaky Blinders',
+   'The Office',
+   'JJ begging Arka and Infi to watch flash',
+   'Abhiggyan begging for admin',
+   'Community',
+   'Reverse Flash being so cool 😤',
+   'People cry for help',
+   'Tommy Shelby being a sigma',
+   'Anime',
+   'YLIA and crying D:',
+   'Anime',
+   'Naruto spam shadow clone jutsu',
+   'Infi getting strelizia ready',
+   'You😤smelling👃like😳a😱baka😩',
+   'Apra supporting LGBTQ',
+   'Arka D-DOS people',
+   'Garvit existing smh 🙄',
+   'JJ mention he created this bot',
+   'JJ telling to use this bot',
+   'Joe 👀'
+   // 'Minecraft'
 ]
 
 client.on('ready', async () => {
-  console.log('The client is ready!')
+
 
   setInterval(() => {
-    // generate random number between 1 and list length.
+    
     const index = Math.floor(Math.random() * (activities.length - 1) + 1);
-    client.user.setActivity(activities[index], {type: 'WATCHING'}); //sets activity to random activity from list.
+    client.user.setActivity(activities[index], { type: 'WATCHING' });
   }, 10000);
 
   const baseFile = 'command-base.js'
@@ -58,6 +68,8 @@ client.on('ready', async () => {
 
   readCommands('commands')
   welcome(client)
+  console.log('The client is ready!')
 })
 
+keepAlive()
 client.login(config.token)
