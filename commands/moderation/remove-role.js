@@ -1,9 +1,8 @@
 module.exports = {
-  commands: ['removerole', 'delrole', 'deleterole','rr','dr'],
+  commands: ['removerole', 'delrole', 'deleterole'],
   minArgs: 2,
   expectedArgs: "<Target user's @> <The role name>",
-  permissionError: 'Bhai pehele admin ban.. fir logo se role hatana',
-    requiredRoles: ['Admins'],
+  requiredRoles: ['Admins'],
   callback: (message, arguments) => {
     const targetUser = message.mentions.users.first()
     if (!targetUser) {

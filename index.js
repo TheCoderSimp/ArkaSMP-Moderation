@@ -1,12 +1,17 @@
 const path = require('path')
 const fs = require('fs')
-const { Client, Intents } = require('discord.js');
+const { Client, Intents, Collection } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-const config = require('./config.json');
+// const config = require('./config.json');
 const welcome = require('./welcome');
 const commandBase = require('./commands/command-base');
-const keepAlive = require('./server')
+// const keepAlive = require('./server')
+const config = require('./config.json');
+
+require('./util/loadEvents')(client);
+
+client.snipes = new Collection()
 
 // const state = 0
 const activities = [
@@ -14,7 +19,7 @@ const activities = [
    'Steins Gate',
    'Infi go on about anime',
    'Arka sell hitmen',
-   'Singing Joe Ke Bolo',
+   'Ish Singing Joe Ke Bolo',
    'People not having a life',
    'Aadi being dumb',
    'JJ apologising for deleting general',
@@ -32,7 +37,6 @@ const activities = [
    'Naruto spam shadow clone jutsu',
    'Infi getting strelizia ready',
    'You😤smelling👃like😳a😱baka😩',
-   'Apra supporting LGBTQ',
    'Arka D-DOS people',
    'Garvit existing smh 🙄',
    'JJ mention he created this bot',
@@ -71,5 +75,5 @@ client.on('ready', async () => {
   console.log('The client is ready!')
 })
 
-keepAlive()
+// keepAlive()
 client.login(config.token)

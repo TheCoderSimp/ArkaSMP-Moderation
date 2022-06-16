@@ -1,9 +1,7 @@
 module.exports = {
-  commands: ['giverole','addrole','gr','ar'],
+  commands: 'giverole',
   minArgs: 2,
   expectedArgs: "<Target user's @> <The role name>",
-  permissionError: 'Bhai pehele admin ban.. fir logo ko role dena',
-  // permissions: 'ADMINISTRATOR',
   requiredRoles: ['Admins'],
   callback: (message, arguments) => {
     const targetUser = message.mentions.users.first()

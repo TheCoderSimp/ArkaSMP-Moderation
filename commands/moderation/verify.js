@@ -12,8 +12,10 @@ module.exports = {
 
     arguments.shift()
 
-    let role = message.guild.roles.cache.find(r => r.id === '896020689226719252');
+    let role = message.guild.roles.cache.find(r => r.name === 'Members');
 
-    targetUser.roles.add(role)
+    const member = guild.members.cache.get(targetUser.id)
+    
+    member.roles.add(role)
   },
 }
