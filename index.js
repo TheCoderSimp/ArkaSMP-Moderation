@@ -3,8 +3,6 @@ const fs = require('fs')
 const { Client, Intents, Collection } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-// const config = require('./config.json');
-const welcome = require('./welcome');
 const commandBase = require('./commands/command-base');
 // const keepAlive = require('./server')
 const config = require('./config.json');
@@ -70,8 +68,7 @@ client.on('ready', async () => {
     }
   }
 
-  readCommands('commands')
-  welcome(client)
+  readCommands('commands');
   console.log('The client is ready!')
 })
 
